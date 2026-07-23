@@ -26,14 +26,14 @@ def send_message(text: str) -> None:
 
     url = f"https://api.telegram.org/bot{config.TELEGRAM_BOT_TOKEN}/sendRichMessage"
     for chunk in _chunks(text):
-        resp = requests.post(
-            url,
-            json={
-                "chat_id": config.TELEGRAM_CHAT_ID,
-                "rich_message": {"markdown": chunk},
-            },
-            timeout=30,
-        )
+        payload = {
+            "chat_id": config.TELEGRAM_CHAT_ID,
+            "rich_message": {"markdown": chunk},
+        }
+        if config.TELEGRAM_MESSAGE_THREAD_ID:
+            payload["message_thread_id"] = int(config.TELEGRAM_MESSAGE_THREAD_ID)
+
+        resp = requests.post(url, json=payload, timeout=30)
         resp.raise_for_status()
         data = resp.json()
         if not data.get("ok"):

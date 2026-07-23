@@ -55,6 +55,10 @@ Isi `.env`:
 - `TELEGRAM_CHAT_ID` — invite bot ke grup, kirim satu pesan apa saja di grup, lalu buka
   `https://api.telegram.org/bot<TOKEN>/getUpdates` di browser untuk melihat `chat.id`
   (angkanya negatif untuk grup).
+- `TELEGRAM_MESSAGE_THREAD_ID` (opsional) — kalau grupnya pakai mode **Topics**, isi ini
+  supaya hasil scan masuk ke topic tertentu, bukan ke General. Cara ambil: buka topic
+  tujuan → titik tiga / klik kanan → "Copy Link" → link-nya berbentuk
+  `https://t.me/c/xxxxxxxxxx/<message_thread_id>`, angka terakhir itu yang dipakai.
 
 ## Menjalankan
 

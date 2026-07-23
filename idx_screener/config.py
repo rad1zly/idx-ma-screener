@@ -42,6 +42,8 @@ FETCH_LIMIT = int(os.getenv("IDX_FETCH_LIMIT", "2000"))
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+# Opsional: isi kalau grup pakai mode Topics dan mau kirim ke topic tertentu (bukan General)
+TELEGRAM_MESSAGE_THREAD_ID = os.getenv("TELEGRAM_MESSAGE_THREAD_ID", "")
 
 # Opsional: kalau kosong, layer AI top-picks otomatis di-skip
 MINIMAX_API_KEY = os.getenv("MINIMAX_API_KEY", "")
