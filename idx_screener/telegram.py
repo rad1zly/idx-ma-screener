@@ -34,7 +34,14 @@ def send_message(text: str) -> None:
             payload["message_thread_id"] = int(config.TELEGRAM_MESSAGE_THREAD_ID)
 
         resp = requests.post(url, json=payload, timeout=30)
-        resp.raise_for_status()
-        data = resp.json()
+        try:
+            data = resp.json()
+        except ValueError:
+            resp.raise_for_status()
+            raise
+
         if not data.get("ok"):
-            raise RuntimeError(f"Telegram sendRichMessage gagal: {data}")
+            raise RuntimeError(
+                f"Telegram sendRichMessage gagal (HTTP {resp.status_code}): "
+                f"{data.get('description', data)}"
+            )
