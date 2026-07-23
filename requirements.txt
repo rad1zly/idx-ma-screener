@@ -1,0 +1,5 @@
+tradingview-screener>=1.0.0
+pandas
+requests
+python-dotenv
+yfinance
