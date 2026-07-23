@@ -81,7 +81,7 @@ sekarang (broadcast hasil scan sekali sehari) itu over-engineering.
 Jadwalkan setelah bursa IDX tutup, misalnya jam 16:15 WIB (Senin–Jumat):
 
 ```cron
-15 16 * * 1-5 cd "/Users/dalinfo-air-01/Fadhil/IDX Screener" && .venv/bin/python3 -m idx_screener.main >> logs/screener.log 2>&1
+15 16 * * 1-5 .venv/bin/python3 -m idx_screener.main >> logs/screener.log 2>&1
 ```
 
 Kalau kamu sudah pakai automation sendiri (openclaw dsb.), tinggal arahkan cron/task
